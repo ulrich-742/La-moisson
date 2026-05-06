@@ -3,13 +3,14 @@ type CardParcelleProps = {
     surface: number;
     culture: string;
     etat: string;
+    parcelles: string[];
     onSurfaceChange: (v: number) => void;
     onCultureChange: (v: string) => void;
     onEtatChange: (v: string) => void;
 }
 
 
-function CardParcelle({ surface, culture, etat, onSurfaceChange, onCultureChange, onEtatChange }: CardParcelleProps) {
+function CardParcelle({ surface, culture, etat, parcelles, onSurfaceChange, onCultureChange, onEtatChange }: CardParcelleProps) {
     return (
         <div className="card">
             <h2 className="card__title"> Informations de la Parcelle</h2>
@@ -18,7 +19,9 @@ function CardParcelle({ surface, culture, etat, onSurfaceChange, onCultureChange
                 <label className="field__label">Parcelle </label>
                 <div className="select">
                     <select className="select__input">
-                        <option>Champ du nord</option>
+                        {parcelles.map(p => (
+                            <option key={p} value={p}>{p}</option>
+                        ))}
                     </select>
                 </div>
             </div>
@@ -53,7 +56,7 @@ function CardParcelle({ surface, culture, etat, onSurfaceChange, onCultureChange
                     </select>
                 </div >
             </div>
-        </div>
+        </div >
     );
 }
 export default CardParcelle;

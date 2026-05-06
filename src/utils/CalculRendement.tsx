@@ -15,6 +15,20 @@ const facteurMeteo: Record<string, number> = {
     "Neutre": 1.00,
     "Défavorable": 0.85,
 };
+export function getStatutRecolte(rendementHa: number): {
+    label: string;
+    badge: string;
+} {
+    if (rendementHa >= 15) {
+        return { label: "Excellente récolte", badge: "badge--growing" };
+    } else if (rendementHa >= 10) {
+        return { label: "Récolte favorable", badge: "badge--growing" };
+    } else if (rendementHa >= 5) {
+        return { label: "Récolte moyenne", badge: "badge--sown" };
+    } else {
+        return { label: "Récolte défavorable", badge: "badge--resting" };
+    }
+}
 
 export function calculerRendement(parcelle: {
     surface: number;
@@ -28,9 +42,12 @@ export function calculerRendement(parcelle: {
 
     const rendementHa = base * etat * meteo;
     const rendementTotal = rendementHa * parcelle.surface;
+    const statut = getStatutRecolte(rendementHa);
 
     return {
         rendementHa: rendementHa.toFixed(2),
         rendementTotal: rendementTotal.toFixed(1),
+        statutLabel: statut.label,
+        statutBadge: statut.badge,
     };
 }

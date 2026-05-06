@@ -6,7 +6,14 @@ import CardConditions from "../../Components/InterfaceCards/CardConditions";
 import CardRendement from "../../Components/InterfaceCards/CardRendement";
 
 
-{/* HEADER */ }
+const parcelles = [
+    "Champ du Nord",
+    "Les Hauts",
+    "Le Colombier",
+    "La Petite Plaine",
+    "Champ du Sud",
+    "Les Vallons",
+];
 
 function Interface() {
 
@@ -14,7 +21,7 @@ function Interface() {
     const [culture, setCulture] = useState("Blé");
     const [etat, setEtat] = useState("En croissance");
     const [conditionMeteo, setConditionMeteo] = useState("Favorable");
-    const [resultat, setResultat] = useState<{ rendementHa: string, rendementTotal: string } | null>(null);
+    const [resultat, setResultat] = useState<{ rendementHa: string, rendementTotal: string, statutLabel: string, statutBadge: string } | null>(null);
 
     function handleCalculer() {
         const res = calculerRendement({
@@ -43,6 +50,7 @@ function Interface() {
                     surface={surface}
                     culture={culture}
                     etat={etat}
+                    parcelles={parcelles}
                     onSurfaceChange={setSurface}
                     onCultureChange={setCulture}
                     onEtatChange={setEtat} />
@@ -51,7 +59,9 @@ function Interface() {
                     onConditionMeteoChange={setConditionMeteo} />
                 <CardRendement
                     rendementTotal={resultat?.rendementTotal ?? "--"}
-                    rendementHa={resultat?.rendementHa ?? "--"} />
+                    rendementHa={resultat?.rendementHa ?? "--"}
+                    statutLabel={resultat?.statutLabel ?? ""}
+                    statutBadge={resultat?.statutBadge ?? "badge--resting"} />
             </div>
 
             <div className="interface-footer">
