@@ -12,30 +12,30 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 
-import Home from "./Components/Pages/Home";
-// import Moisson from "./Components/Pages/Moisson";
-// import Parcelles from "./Components/Pages/Parcelles";
-// import Meteo from "./Components/Pages/Meteo";
-// import CoursGrains from "./Components/Pages/CoursGrains";
-// import Registre from "./Components/Pages/Registre";
+import Home from "./pages/Home";
+// import Moisson from "./pages/Moisson";
+import Parcelles from "./pages/Parcelles";
+// import Meteo from "./pages/Meteo";
+// import CoursGrains from "./pages/CoursGrains";
+// import Registre from "./pages/Registre";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      { path: "/", element: <Home /> },
-      // { path: "/moisson", element: <Moisson /> },
-      // { path: "/parcelles", element: <Parcelles /> },
-      // { path: "/meteo", element: <Meteo /> },
-      // { path: "/cours-grains", element: <CoursGrains /> },
-      // { path: "/registre", element: <Registre /> },
-    ],
-  },
+	{
+		path: "/",
+		element: <App />,
+		children: [
+			{ path: "/", element: <Home /> },
+			// { path: "/moisson", element: <Moisson /> },
+			{ path: "/parcelles", element: <Parcelles /> },
+			// { path: "/meteo", element: <Meteo /> },
+			// { path: "/cours-grains", element: <CoursGrains /> },
+			// { path: "/registre", element: <Registre /> },
+		],
+	},
 ]);
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
+	<StrictMode>
+		<RouterProvider router={router} />
+	</StrictMode>,
 );
