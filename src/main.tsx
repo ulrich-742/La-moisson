@@ -1,40 +1,61 @@
 import "@fontsource/cinzel/400.css";
 import "@fontsource/cinzel/600.css";
 import "@fontsource/cinzel/700.css";
+
 import "@fontsource/lora/400.css";
 import "@fontsource/lora/400-italic.css";
 import "@fontsource/lora/600.css";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+import {
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 
 import "./index.css";
+
 import App from "./App";
 
+/* PAGES */
 import Interface from "./Pages/Interface/Interface";
 import Parcelles from "./Pages/Parcelles/Parcelles";
-// import Meteo from "./Components/Pages/Meteo";
-// import CoursGrains from "./Components/Pages/CoursGrains";
-// import Registre from "./Components/Pages/Registre";
+import CoursDesGrains from "./Pages/CoursDesGrains/CoursDesGrains";
 
+/* ROUTER */
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+
     children: [
-      { path: "/interface", element: <Interface /> },
-      // { path: "/parcelles", element: <Parcelles /> },
-      // { path: "/meteo", element: <Meteo /> },
-      // { path: "/cours-grains", element: <CoursGrains /> },
-      // { path: "/registre", element: <Registre /> },
+      {
+        path: "/",
+        element: <Interface />,
+      },
+
+      {
+        path: "/interface",
+        element: <Interface />,
+      },
+
+      {
+        path: "/parcelles",
+        element: <Parcelles propsParcelles={[]} />,
+      },
+
+      {
+        path: "/cours-grains",
+        element: <CoursDesGrains />,
+      },
     ],
   },
-
 ]);
 
+/* RENDER */
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
+  </StrictMode>
 );
