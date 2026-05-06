@@ -3,7 +3,7 @@
 			components/ui/button.tsx afin d'avoir un code plus modulaire */
 }
 
-import { useRecoltes } from "../hooks/useRecoltes";
+import { useRecoltes } from "../../../hooks/useRecoltes";
 
 const RegistreRecolte = () => {
 	const { recoltes, loading } = useRecoltes();

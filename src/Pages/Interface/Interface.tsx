@@ -1,7 +1,7 @@
 import "./Interface.css";
-import CardParcelle from "../../InterfaceCards/CardParcelle";
-import CardConditions from "../../InterfaceCards/CardConditions";
-import CardRendement from "../../InterfaceCards/CardRendement";
+import CardParcelle from "../../Components/InterfaceCards/CardParcelle";
+import CardConditions from "../../Components/InterfaceCards/CardConditions";
+import CardRendement from "../../Components/InterfaceCards/CardRendement";
 
 {/* HEADER */ }
 
