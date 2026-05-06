@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5e9d7;
+}
+
+/* NAV /
+.nav {
+  background: #1f2b1d;
+  color: gold;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  color: #ddd;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.logo {
+  font-weight: bold;
+  color: gold;
+}
+
+/ PAGE /
+.page {
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/ GRID /
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/ CARD /
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/ TABLE /
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.up {
+  color: green;
+}
+
+.down {
+  color: red;
+}
+
+/ BUTTON /
+.btn {
+  margin-top: 10px;
+  padding: 10px;
+  background: #d2b48c;
+  border: none;
+  cursor: pointer;
+}
+
+/ CHART MOCK /
+.chart {
+  height: 150px;
+  position: relative;
+  background: #f3f3f3;
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.line {
+  height: 3px;
+  position: absolute;
+  width: 100%;
+}
+
+.ble-line {
+  top: 30px;
+  background: green;
+}
+
+.mais-line {
+  top: 60px;
+  background: orange;
+}
+
+.orge-line {
+  top: 90px;
+  background: goldenrod;
+}
+
+.avoine-line {
+  top: 120px;
+  background: gray;
+}
+
+/ LEGEND */
+.legend span {
+  margin-right: 10px;
+}
