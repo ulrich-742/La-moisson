@@ -53,12 +53,13 @@ import Parcelles from "./pages/Parcelles";
 	},
 ];
  */
-function App() {
-	return <Outlet />;
 
-	{
-		/* <Parcelles propsParcelles={parcellesData} /> */
-	}
+function App() {
+	return (
+		<>
+			<Outlet />
+		</>
+	);
 }
 
 export default App;
