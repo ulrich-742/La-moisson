@@ -1,2 +1,11 @@
-import Interface from "./Interface"
-import "./components/Interface.css";
+import { Outlet } from "react-router-dom";
+
+function App() {
+  return (
+    <>
+      <Outlet />
+    </>
+  );
+}
+
+export default App;
