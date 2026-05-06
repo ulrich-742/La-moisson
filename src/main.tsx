@@ -12,30 +12,29 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 
-import Home from "./components/Pages/Home";
-// import Moisson from "./Components/Pages/Moisson";
-// import Parcelles from "./Components/Pages/Parcelles";
+import Interface from "./Pages/Interface/Interface";
+import Parcelles from "./Pages/Parcelles/Parcelles";
 // import Meteo from "./Components/Pages/Meteo";
 // import CoursGrains from "./Components/Pages/CoursGrains";
-import RegistreRecolte from "./components/RegistreRecolte/RegistreRecolte";
+// import Registre from "./Components/Pages/Registre";
 
 const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <App />,
-		children: [
-			{ path: "/", element: <Home /> },
-			// { path: "/moisson", element: <Moisson /> },
-			// { path: "/parcelles", element: <Parcelles /> },
-			// { path: "/meteo", element: <Meteo /> },
-			// { path: "/cours-grains", element: <CoursGrains /> },
-			{ path: "/registre", element: <RegistreRecolte /> },
-		],
-	},
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      { path: "/interface", element: <Interface /> },
+      // { path: "/parcelles", element: <Parcelles /> },
+      // { path: "/meteo", element: <Meteo /> },
+      // { path: "/cours-grains", element: <CoursGrains /> },
+      // { path: "/registre", element: <Registre /> },
+    ],
+  },
+
 ]);
 
 createRoot(document.getElementById("root")!).render(
-	<StrictMode>
-		<RouterProvider router={router} />
-	</StrictMode>,
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>,
 );
