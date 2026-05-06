@@ -19,22 +19,21 @@ import Parcelles from "./Pages/Parcelles/Parcelles";
 // import Registre from "./Components/Pages/Registre";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      { path: "/interface", element: <Interface /> },
-      // { path: "/parcelles", element: <Parcelles /> },
-      // { path: "/meteo", element: <Meteo /> },
-      // { path: "/cours-grains", element: <CoursGrains /> },
-      // { path: "/registre", element: <Registre /> },
-    ],
-  },
-
+	{
+		path: "/",
+		element: <App />,
+		children: [
+			{ path: "/interface", element: <Interface /> },
+			{ path: "/parcelles", element: <Parcelles /> },
+			// { path: "/meteo", element: <Meteo /> },
+			// { path: "/cours-grains", element: <CoursGrains /> },
+			// { path: "/registre", element: <Registre /> },
+		],
+	},
 ]);
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+	<StrictMode>
+		<RouterProvider router={router} />
+	</StrictMode>,
 );

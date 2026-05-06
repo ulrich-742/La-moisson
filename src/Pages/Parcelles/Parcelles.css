@@ -48,3 +48,8 @@
 	padding: 0;
 	background-color: none;
 }
+
+.btn-parcelle {
+	padding: 0.4rem;
+	border-radius: var(--radius-md);
+}

@@ -1,3 +1,4 @@
+//a mettre en .env ?
 const API_URL = "http://localhost:3000/api";
 
 export const getRecoltes = async () => {
