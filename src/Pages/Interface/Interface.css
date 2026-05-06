@@ -1,0 +1,46 @@
+.interface {
+    padding: var(--space-5);
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.interface-cards {
+    display: flex;
+    gap: var(--space-4);
+    align-items: stretch;
+}
+
+.interface-cards>* {
+    flex: 1;
+}
+
+.interface-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-5);
+}
+
+.interface-header__titles h1 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-heading);
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.interface-header__titles p {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-top: var(--space-1);
+}
+
+.interface-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-5);
+}

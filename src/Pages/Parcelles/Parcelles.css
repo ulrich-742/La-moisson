@@ -1,0 +1,50 @@
+.parcelles-p-legende {
+	padding: 1rem 0 2rem 0;
+}
+
+.parcelles-div-table-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 90%;
+	padding: 0 1rem;
+	background-color: var(--color-surface);
+	border: 1px solid var(--color-accent-gold);
+	border-radius: var(--radius-lg);
+}
+
+.parcelles-div-table-header,
+.parcelles-div-infos {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: max-content;
+	border-bottom: 1px solid var(--color-accent-gold);
+}
+
+.parcelles-div-infos:last-child {
+	border-bottom: none;
+}
+.parcelles-div-p-infos,
+.parcelles-div-div-actions,
+.parcelles-div-table-row {
+	width: 15%;
+	font-weight: var(--font-weight-semibold);
+	padding: 1rem 0;
+}
+
+.parcelles-div-div-actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+}
+.parcelles-div-button {
+	border: none;
+	padding: 0;
+	background-color: none;
+}

@@ -27,7 +27,7 @@ export default function Navbar() {
 						isActive ? "nav-item active" : "nav-item"
 					}
 				>
-					🏠 Accueil
+					 Accueil
 				</NavLink>
 
 				<NavLink
@@ -36,7 +36,7 @@ export default function Navbar() {
 						isActive ? "nav-item active" : "nav-item"
 					}
 				>
-					🌾 La Moisson
+					 La Moisson
 				</NavLink>
 
 				<NavLink
@@ -45,7 +45,7 @@ export default function Navbar() {
 						isActive ? "nav-item active" : "nav-item"
 					}
 				>
-					🧱 Parcelles
+					 Parcelles
 				</NavLink>
 
 				<NavLink
@@ -54,7 +54,7 @@ export default function Navbar() {
 						isActive ? "nav-item active" : "nav-item"
 					}
 				>
-					☁️ Météo
+					 Météo
 				</NavLink>
 
 				<NavLink
@@ -63,7 +63,7 @@ export default function Navbar() {
 						isActive ? "nav-item active" : "nav-item"
 					}
 				>
-					💰 Cours des grains
+					 Cours des grains
 				</NavLink>
 
 				<NavLink
@@ -72,7 +72,7 @@ export default function Navbar() {
 						isActive ? "nav-item active" : "nav-item"
 					}
 				>
-					📜 Registre de récolte
+					 Registre de récolte
 				</NavLink>
 
 				<NavLink
@@ -81,7 +81,7 @@ export default function Navbar() {
 						isActive ? "nav-item active" : "nav-item"
 					}
 				>
-					🧠 Conseils
+					 Conseils
 				</NavLink>
 			</div>
 		</nav>
