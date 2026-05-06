@@ -13,7 +13,7 @@ import "./index.css";
 import App from "./App";
 
 import Home from "./Components/Pages/Home";
-// import Moisson from "./Components/Pages/Interface";
+import Interface from "./Components/Pages/InterfaceMoisson/Interface";
 // import Parcelles from "./Components/Pages/Parcelles";
 // import Meteo from "./Components/Pages/Meteo";
 // import CoursGrains from "./Components/Pages/CoursGrains";
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { path: "/", element: <Home /> },
-      // { path: "/moisson", element: <Moisson /> },
+      { path: "/interface", element: <Home /> },
+      { path: "/Interface", element: <Interface /> },
       // { path: "/parcelles", element: <Parcelles /> },
       // { path: "/meteo", element: <Meteo /> },
       // { path: "/cours-grains", element: <CoursGrains /> },
