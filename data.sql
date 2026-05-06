@@ -1,4 +1,5 @@
-CREATE DATABASE IF NOT EXISTS la_moisson;
+DROP DATABASE IF EXISTS la_moisson;
+CREATE DATABASE la_moisson;
 USE la_moisson;
 
 CREATE TABLE cultures (
@@ -20,6 +21,7 @@ CREATE TABLE parcelles (
   etat ENUM('En croissance', 'Semée', 'Au repos', 'Récoltée') NOT NULL,
   derniere_maj DATE,
   FOREIGN KEY (culture_id) REFERENCES cultures(id)
+  ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE recoltes (
@@ -29,8 +31,10 @@ CREATE TABLE recoltes (
   culture_id INT,
   quantite DECIMAL(6,2),
   rendement DECIMAL(5,2),
-  FOREIGN KEY (parcelle_id) REFERENCES parcelles(id),
+  FOREIGN KEY (parcelle_id) REFERENCES parcelles(id)
+  ON DELETE RESTRICT ON UPDATE CASCADE,
   FOREIGN KEY (culture_id) REFERENCES cultures(id)
+  ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE cours_grains (
@@ -40,6 +44,7 @@ CREATE TABLE cours_grains (
   prix DECIMAL(6,2),
   evolution DECIMAL(4,2),
   FOREIGN KEY (culture_id) REFERENCES cultures(id)
+  ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE meteo (
@@ -81,8 +86,10 @@ CREATE TABLE calculs_rendement (
   rendement_estime_t DECIMAL(6,2),
   rendement_estime_tha DECIMAL(5,2),
   appreciation VARCHAR(100),
-  FOREIGN KEY (parcelle_id) REFERENCES parcelles(id),
+  FOREIGN KEY (parcelle_id) REFERENCES parcelles(id)
+  ON DELETE RESTRICT ON UPDATE CASCADE,
   FOREIGN KEY (culture_id) REFERENCES cultures(id)
+  ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 INSERT INTO cultures (nom) VALUES ('Blé'), ('Maïs'), ('Orge'), ('Avoine');
