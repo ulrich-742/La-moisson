@@ -27,7 +27,8 @@ body {
 
 / PAGE /
 .page {
-  padding: 20px;
+  padding: 10px 20px;
+  min-height: auto;
 }
 
 .title {
@@ -42,15 +43,16 @@ body {
 / GRID /
 .grid-2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
 / CARD /
 .card {
   background: white;
-  padding: 15px;
+  padding: 12px;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 / TABLE /

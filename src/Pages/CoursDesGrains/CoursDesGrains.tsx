@@ -1,4 +1,3 @@
-import Footer from "../../Components/Footer/Footer";
 import PrixActuel from "../../Components/CoursDesGrains/PrixActuel";
 import CoursDesGrainsEvolutions from "../../Components/CoursDesGrains/CoursDesGrainsEvolutions";
 
@@ -6,8 +5,6 @@ import "./CoursDesGrains.css";
 
 export default function CoursDesGrains() {
   return (
-    <>
-
     <div className="page">
       <h1 className="title">📊 COURS DES GRAINS</h1>
 
@@ -20,8 +17,5 @@ export default function CoursDesGrains() {
         <CoursDesGrainsEvolutions />
       </div>
     </div>
-    
-    <Footer />
-    </>
   );
 }

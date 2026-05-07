@@ -1,25 +1,107 @@
-export default function EvolutionChart() {
+import { useEffect, useState } from "react";
+
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+
+type HistoryPoint = {
+  time: string;
+
+  ble: number;
+  mais: number;
+  orge: number;
+  avoine: number;
+};
+
+export default function CoursDesGrainsEvolutions() {
+
+  const [data, setData] = useState<HistoryPoint[]>([]);
+
+  useEffect(() => {
+
+    async function fetchHistory() {
+
+      const response = await fetch(
+        "http://localhost:5000/api/grains/history"
+      );
+
+      const result = await response.json();
+
+      setData(result);
+    }
+
+    /* premier chargement */
+    fetchHistory();
+
+    /* refresh auto */
+    const interval = setInterval(fetchHistory, 3000);
+
+    return () => clearInterval(interval);
+
+  }, []);
+
   return (
-    <div className="card">
-      <h2>📈 ÉVOLUTION (30 JOURS)</h2>
+    <div id="historique-prix"className="card chart-card">
 
-      <div className="legend">
-        <span className="ble">● Blé</span>
-        <span className="mais">● Maïs</span>
-        <span className="orge">● Orge</span>
-        <span className="avoine">● Avoine</span>
-      </div>
+      <h2>📈 ÉVOLUTION EN DIRECT</h2>
 
-      <div className="chart">
-        <div className="line ble-line"></div>
-        <div className="line mais-line"></div>
-        <div className="line orge-line"></div>
-        <div className="line avoine-line"></div>
-      </div>
+      <ResponsiveContainer width="100%" height={320}>
 
-      <p className="chart-note">
-        15 Avr → 13 Mai
-      </p>
+        <LineChart data={data}>
+
+          <CartesianGrid strokeDasharray="3 3" />
+
+          <XAxis dataKey="time" />
+
+          <YAxis />
+
+          <Tooltip />
+
+          <Legend />
+
+          <Line
+            type="monotone"
+            dataKey="ble"
+            name="Blé"
+            stroke="#2f8b46"
+            strokeWidth={3}
+          />
+
+          <Line
+            type="monotone"
+            dataKey="mais"
+            name="Maïs"
+            stroke="#e3a623"
+            strokeWidth={3}
+          />
+
+          <Line
+            type="monotone"
+            dataKey="orge"
+            name="Orge"
+            stroke="#c9a031"
+            strokeWidth={3}
+          />
+
+          <Line
+            type="monotone"
+            dataKey="avoine"
+            name="Avoine"
+            stroke="#738b8a"
+            strokeWidth={3}
+          />
+
+        </LineChart>
+
+      </ResponsiveContainer>
+
     </div>
   );
 }
