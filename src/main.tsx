@@ -12,24 +12,22 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 
-import Home from "./pages/Home";
-// import Moisson from "./pages/Moisson";
-import Parcelles from "./pages/Parcelles";
-// import Meteo from "./pages/Meteo";
-// import CoursGrains from "./pages/CoursGrains";
-// import Registre from "./pages/Registre";
+import Interface from "./Pages/Interface/Interface";
+import Parcelles from "./Pages/Parcelles/Parcelles";
+// import Meteo from "./Components/Pages/Meteo";
+// import CoursGrains from "./Components/Pages/CoursGrains";
+import Registre from "./Pages/RegistreRecolte/RegistreRecolte";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <App />,
 		children: [
-			{ path: "/", element: <Home /> },
-			// { path: "/moisson", element: <Moisson /> },
+			{ path: "/interface", element: <Interface /> },
 			{ path: "/parcelles", element: <Parcelles /> },
 			// { path: "/meteo", element: <Meteo /> },
 			// { path: "/cours-grains", element: <CoursGrains /> },
-			// { path: "/registre", element: <Registre /> },
+			{ path: "/registre", element: <Registre /> },
 		],
 	},
 ]);

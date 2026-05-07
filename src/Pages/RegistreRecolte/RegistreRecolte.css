@@ -1,8 +1,8 @@
-.parcelles-p-legende {
+.recolte-p-legende {
 	padding: 1rem 0 2rem 0;
 }
 
-.parcelles-div-table-container {
+.recolte-div-table-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -14,8 +14,8 @@
 	border-radius: var(--radius-lg);
 }
 
-.parcelles-div-table-header,
-.parcelles-div-infos {
+.recolte-div-table-header,
+.recolte-div-infos {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -25,26 +25,29 @@
 	border-bottom: 1px solid var(--color-accent-gold);
 }
 
-.parcelles-div-infos:last-child {
+.recolte-div-infos:last-child {
 	border-bottom: none;
 }
-.parcelles-div-p-infos,
-.parcelles-div-div-actions,
-.parcelles-div-table-row {
-	width: 15%;
+
+.recolte-div-p-infos,
+.recolte-div-div-actions,
+.recolte-div-table-row {
+	width: 20%;
 	font-weight: var(--font-weight-semibold);
 	padding: 1rem 0;
 }
 
-.parcelles-div-div-actions {
+.recolte-div-div-actions {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
 	gap: 1rem;
 }
-.parcelles-div-button {
+
+.recolte-div-button {
 	border: none;
 	padding: 0;
-	background-color: none;
+	background-color: transparent;
+	cursor: pointer;
 }
