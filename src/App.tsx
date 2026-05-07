@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { Outlet } from "react-router-dom";
-import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 import CoursDesGrains from "./Pages/CoursDesGrains/CoursDesGrains";
 
@@ -60,13 +60,13 @@ import CoursDesGrains from "./Pages/CoursDesGrains/CoursDesGrains";
  */
 
 function App() {
-    return (
-        <>
-            <Navbar />
-            <Outlet />
-            <Footer />
-        </>
-    );
+	return (
+		<>
+			<Navbar />
+			<Outlet />
+			<Footer />
+		</>
+	);
 }
 
 export default App;
