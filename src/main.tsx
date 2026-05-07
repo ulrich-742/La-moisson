@@ -22,6 +22,10 @@ import App from "./App";
 import Interface from "./Pages/Interface/Interface";
 import Parcelles from "./Pages/Parcelles/Parcelles";
 import CoursDesGrains from "./Pages/CoursDesGrains/CoursDesGrains";
+import RegistreRecolte from "./Pages/RegistreRecolte/RegistreRecolte";
+
+
+
 
 /* ROUTER */
 const router = createBrowserRouter([
@@ -44,6 +48,10 @@ const router = createBrowserRouter([
         path: "/parcelles",
         element: <Parcelles propsParcelles={[]} />,
       },
+
+      { path: "/registre",
+        element: <RegistreRecolte /> 
+        },
 
       {
         path: "/cours-grains",
