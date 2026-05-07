@@ -9,13 +9,10 @@ import "@fontsource/lora/600.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import {
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "./index.css";
-+
+
 import App from "./App";
 
 /* PAGES */
@@ -24,46 +21,41 @@ import Parcelles from "./Pages/Parcelles/Parcelles";
 import CoursDesGrains from "./Pages/CoursDesGrains/CoursDesGrains";
 import RegistreRecolte from "./Pages/RegistreRecolte/RegistreRecolte";
 
-
-
-
 /* ROUTER */
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
+	{
+		path: "/",
+		element: <App />,
 
-    children: [
-      {
-        path: "/",
-        element: <Interface />,
-      },
+		children: [
+			{
+				path: "/",
+				element: <Interface />,
+			},
 
-      {
-        path: "/interface",
-        element: <Interface />,
-      },
+			{
+				path: "/interface",
+				element: <Interface />,
+			},
 
-      {
-        path: "/parcelles",
-        element: <Parcelles propsParcelles={[]} />,
-      },
+			{
+				path: "/parcelles",
+				element: <Parcelles propsParcelles={[]} />,
+			},
 
-      { path: "/registre",
-        element: <RegistreRecolte /> 
-        },
+			{ path: "/registre", element: <RegistreRecolte /> },
 
-      {
-        path: "/cours-grains",
-        element: <CoursDesGrains />,
-      },
-    ],
-  },
+			{
+				path: "/cours-grains",
+				element: <CoursDesGrains />,
+			},
+		],
+	},
 ]);
 
 /* RENDER */
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
+	<StrictMode>
+		<RouterProvider router={router} />
+	</StrictMode>,
 );
