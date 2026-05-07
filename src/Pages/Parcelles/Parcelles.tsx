@@ -23,6 +23,12 @@ function Parcelles() {
 		{ id: "actions", label: "Actions" },
 	];
 
+	const etatClasses: Record<string, string> = {
+		"En croissance": "green-class",
+		Semée: "orange-class",
+		"Au repos": "grey-class",
+	};
+
 	const { parcelles, loading } = useParcelles();
 	if (loading) return <p>Chargement...</p>;
 
@@ -56,7 +62,11 @@ function Parcelles() {
 						<p className="parcelles-div-p-infos">{parcelle.nom}</p>
 						<p className="parcelles-div-p-infos">{parcelle.culture}</p>
 						<p className="parcelles-div-p-infos">{parcelle.surface}</p>
-						<p className="parcelles-div-p-infos">{parcelle.etat}</p>
+						<p className="parcelles-div-p-infos">
+							<span className={etatClasses[parcelle.etat]}>
+								{parcelle.etat}
+							</span>
+						</p>
 						<p className="parcelles-div-p-infos">{parcelle.derniere_maj}</p>
 						<div className="parcelles-div-div-actions">
 							<button type="button" className="parcelles-div-button">

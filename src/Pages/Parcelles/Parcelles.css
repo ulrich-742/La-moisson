@@ -54,7 +54,7 @@
 .parcelles-div-table-row {
 	width: 15%;
 	font-weight: var(--font-weight-semibold);
-	padding: 1rem 0;
+	padding: 0.6rem 0;
 }
 
 .parcelles-div-div-actions {
@@ -76,4 +76,28 @@
 .btn-parcelle {
 	padding: 0.4rem;
 	border-radius: var(--radius-md);
+}
+
+.green-class,
+.orange-class,
+.grey-class {
+	padding: 6px;
+	border-radius: var(--radius-md);
+	display: inline-block; /* Permet au padding de bien s'appliquer */
+	white-space: nowrap; /* Évite que "En croissance" repasse à la ligne */
+}
+
+.green-class {
+	background-color: #add294;
+	color: #1e2f1e;
+}
+
+.orange-class {
+	background-color: rgb(255, 255, 207);
+	color: rgb(208, 143, 3);
+}
+
+.grey-class {
+	background-color: rgb(194, 194, 194);
+	color: rgb(49, 49, 49);
 }
