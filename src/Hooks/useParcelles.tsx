@@ -4,7 +4,7 @@ import { getParcelles } from "../Services/api";
 export interface Parcelle {
 	id: number;
 	nom: string;
-	culture: string;
+	culture_nom: string;
 	surface: number;
 	etat: string;
 	derniere_maj: string;

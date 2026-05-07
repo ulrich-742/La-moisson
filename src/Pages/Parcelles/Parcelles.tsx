@@ -4,15 +4,12 @@ import { useParcelles } from "../../Hooks/useParcelles";
 export interface Parcelle {
 	id: number;
 	nom: string;
-	culture: string;
+	culture_nom: string;
 	surface: number;
 	etat: string;
 	derniere_maj: string;
 }
 
-/* interface ParcelleProps {
-	propsParcelles: Parcelle[];
-} */
 function Parcelles() {
 	const configColonnes = [
 		{ id: "nom", label: "Nom" },
@@ -47,7 +44,6 @@ function Parcelles() {
 			</section>
 
 			<section className="parcelles-section-table-container">
-				{/* LA LIGNE DES TITRES */}
 				<div className="parcelles-div-table-header">
 					{configColonnes.map((col) => (
 						<div key={col.id} className="parcelles-div-table-row">
@@ -56,18 +52,21 @@ function Parcelles() {
 					))}
 				</div>
 
-				{/* LES LIGNES DE DONNÉES */}
 				{parcelles.map((parcelle) => (
 					<div key={parcelle.id} className="parcelles-div-infos">
 						<p className="parcelles-div-p-infos">{parcelle.nom}</p>
-						<p className="parcelles-div-p-infos">{parcelle.culture}</p>
-						<p className="parcelles-div-p-infos">{parcelle.surface}</p>
+						<p className="parcelles-div-p-infos">{parcelle.culture_nom}</p>
+						<p className="parcelles-div-p-infos">
+							{Number(parcelle.surface)} ha
+						</p>
 						<p className="parcelles-div-p-infos">
 							<span className={etatClasses[parcelle.etat]}>
 								{parcelle.etat}
 							</span>
 						</p>
-						<p className="parcelles-div-p-infos">{parcelle.derniere_maj}</p>
+						<p className="parcelles-div-p-infos">
+							{new Date(parcelle.derniere_maj).toLocaleDateString("fr-FR")}
+						</p>
 						<div className="parcelles-div-div-actions">
 							<button type="button" className="parcelles-div-button">
 								✏️
@@ -84,5 +83,3 @@ function Parcelles() {
 }
 
 export default Parcelles;
-
-// map les <p>clé</p>

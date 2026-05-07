@@ -28,15 +28,23 @@ const router = createBrowserRouter([
 		element: <App />,
 
 		children: [
+			/* ROUTER */
+
+			/* Rajouter le path pour l'accueil 
 			{
 				path: "/",
-				element: <Interface />,
+				element: <Home />,
 			},
+			*/
 
+			/* Rajouter le path pour la météo 
 			{
-				path: "/interface",
-				element: <Interface />,
+				path: "/",
+				element: <  />,
 			},
+			*/
+
+			{ path: "/moisson", element: <Interface /> },
 
 			{
 				path: "/parcelles",
