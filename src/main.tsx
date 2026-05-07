@@ -16,7 +16,7 @@ import Interface from "./Pages/Interface/Interface";
 import Parcelles from "./Pages/Parcelles/Parcelles";
 // import Meteo from "./Components/Pages/Meteo";
 // import CoursGrains from "./Components/Pages/CoursGrains";
-// import Registre from "./Components/Pages/Registre";
+import Registre from "./Pages/RegistreRecolte/RegistreRecolte";
 
 const router = createBrowserRouter([
 	{
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
 			{ path: "/parcelles", element: <Parcelles /> },
 			// { path: "/meteo", element: <Meteo /> },
 			// { path: "/cours-grains", element: <CoursGrains /> },
-			// { path: "/registre", element: <Registre /> },
+			{ path: "/registre", element: <Registre /> },
 		],
 	},
 ]);

@@ -1,5 +1,5 @@
 import "./Parcelles.css";
-import { useParcelles } from "../../hooks/useParcelles";
+import { useParcelles } from "../../Hooks/useParcelles";
 
 export interface Parcelle {
 	id: number;

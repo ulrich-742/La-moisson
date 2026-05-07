@@ -1,0 +1,53 @@
+.recolte-p-legende {
+	padding: 1rem 0 2rem 0;
+}
+
+.recolte-div-table-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 90%;
+	padding: 0 1rem;
+	background-color: var(--color-surface);
+	border: 1px solid var(--color-accent-gold);
+	border-radius: var(--radius-lg);
+}
+
+.recolte-div-table-header,
+.recolte-div-infos {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: max-content;
+	border-bottom: 1px solid var(--color-accent-gold);
+}
+
+.recolte-div-infos:last-child {
+	border-bottom: none;
+}
+
+.recolte-div-p-infos,
+.recolte-div-div-actions,
+.recolte-div-table-row {
+	width: 20%;
+	font-weight: var(--font-weight-semibold);
+	padding: 1rem 0;
+}
+
+.recolte-div-div-actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+}
+
+.recolte-div-button {
+	border: none;
+	padding: 0;
+	background-color: transparent;
+	cursor: pointer;
+}
