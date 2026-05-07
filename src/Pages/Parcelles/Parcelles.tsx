@@ -27,15 +27,20 @@ function Parcelles() {
 	if (loading) return <p>Chargement...</p>;
 
 	return (
-		<>
-			<h2 className="heading--h2">Gestion des parcelles</h2>
-			<p className="subheading parcelles-p-legende">
-				Consultez et gérez toutes vos parcelles
-			</p>
-			<button type="button" className="btn--primary btn-parcelle">
-				+ Ajouter une parcelle
-			</button>
-			<div className="parcelles-div-table-container">
+		<section className="parcelles-section-globale">
+			<section className="parcelles-section-titles">
+				<div className="parcelles-div-titles">
+					<h2 className="heading--h2">Gestion des parcelles</h2>
+					<p className="subheading parcelles-p-legende">
+						Consultez et gérez toutes vos parcelles
+					</p>
+				</div>
+				<button type="button" className="btn--primary btn-parcelle">
+					+ Ajouter une parcelle
+				</button>
+			</section>
+
+			<section className="parcelles-section-table-container">
 				{/* LA LIGNE DES TITRES */}
 				<div className="parcelles-div-table-header">
 					{configColonnes.map((col) => (
@@ -63,8 +68,8 @@ function Parcelles() {
 						</div>
 					</div>
 				))}
-			</div>
-		</>
+			</section>
+		</section>
 	);
 }
 
