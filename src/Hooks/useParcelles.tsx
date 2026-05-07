@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getParcelles } from "../services/api";
+import { getParcelles } from "../Services/api";
 
 export interface Parcelle {
 	id: number;

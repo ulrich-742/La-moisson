@@ -1,35 +1,103 @@
 import "./Interface.css";
-import CardParcelle from "../../Components/InterfaceCards/CardParcelle";
-import CardConditions from "../../Components/InterfaceCards/CardConditions";
-import CardRendement from "../../Components/InterfaceCards/CardRendement";
+import { useState } from "react";
+import { calculerRendement } from "../../utils/CalculRendement";
+import CardParcelle from "../../components/InterfaceCards/CardParcelle";
+import CardConditions from "../../components/InterfaceCards/CardConditions";
+import CardRendement from "../../components/InterfaceCards/CardRendement";
+import HistoriqueModal from "../../components/HistoriqueModal/HistoriqueModal";
+import "../../Components/HistoriqueModal/HistoriqueModal.css";
 
-{/* HEADER */ }
+
+const parcelles = [
+    "Champ du Nord",
+    "Les Hauts",
+    "Le Colombier",
+    "La Petite Plaine",
+    "Champ du Sud",
+    "Les Vallons",
+];
 
 function Interface() {
+
+    const [surface, setSurface] = useState(0);
+    const [culture, setCulture] = useState("Blé");
+    const [etat, setEtat] = useState("En croissance");
+    const [conditionMeteo, setConditionMeteo] = useState("Favorable");
+    const [resultat, setResultat] = useState<{ rendementHa: string, rendementTotal: string, statutLabel: string, statutBadge: string } | null>(null);
+
+    const [historique, setHistorique] = useState<{
+        date: string;
+        culture: string;
+        surface: number;
+        rendementTotal: string;
+        rendementHa: string;
+        statutLabel: string;
+    }[]>([]);
+
+    const [showHistorique, setShowHistorique] = useState(false);
+
+
+    function handleCalculer() {
+        const res = calculerRendement({
+            surface,
+            culture,
+            etat,
+            conditionMeteo,
+        });
+        setResultat(res);
+
+        setHistorique(prev => [{
+            date: "07/05/1600",
+            culture,
+            surface,
+            rendementTotal: res.rendementTotal,
+            rendementHa: res.rendementHa,
+            statutLabel: res.statutLabel,
+        }, ...prev]);
+    }
+
     return (
         <div className="interface">
-            <div>
-                <div className="interface-header">
-                    <div className="interface-header__titles">
-                        <h1>La Moisson</h1>
-                        <p>Calculez le rendement estimé de vos parcelles en fonction des conditions actuelles</p>
-                    </div>
-                    <button className="btn btn--secondary">Historique des calculs</button>
+            <div className="interface-header">
+                <div className="interface-header__titles">
+                    <h1>La Moisson</h1>
+                    <p>Calculez le rendement estimé de vos parcelles en fonction des conditions actuelles</p>
                 </div>
+                <button className="btn btn--secondary" onClick={() => setShowHistorique(true)}>Historique des calculs
+                </button>
+                {showHistorique && (
+                    <HistoriqueModal
+                        historique={historique}
+                        onClose={() => setShowHistorique(false)}
+                    />
+                )}
+            </div>
 
-                {/* CARDS */}
+            {/* CARDS */}
 
-                <div className="interface-cards">
-                    <CardParcelle />
-                    <CardConditions />
-                    <CardRendement />
-                </div>
+            <div className="interface-cards">
+                <CardParcelle
+                    surface={surface}
+                    culture={culture}
+                    etat={etat}
+                    parcelles={parcelles}
+                    onSurfaceChange={setSurface}
+                    onCultureChange={setCulture}
+                    onEtatChange={setEtat} />
+                <CardConditions
+                    conditionMeteo={conditionMeteo}
+                    onConditionMeteoChange={setConditionMeteo} />
+                <CardRendement
+                    rendementTotal={resultat?.rendementTotal ?? "--"}
+                    rendementHa={resultat?.rendementHa ?? "--"}
+                    statutLabel={resultat?.statutLabel ?? ""}
+                    statutBadge={resultat?.statutBadge ?? "badge--resting"} />
+            </div>
 
-                <div className="interface-footer">
-                    <button className="btn btn--primary btn--lg">
-                        Calculer le rendement
-                    </button>
-                </div>
+            <div className="interface-footer">
+                <button className="btn btn--primary btn--lg" onClick={handleCalculer}>
+                    Calculer le rendement
+                </button>
             </div>
         </div>
     );

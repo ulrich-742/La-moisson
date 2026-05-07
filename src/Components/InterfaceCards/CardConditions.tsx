@@ -1,4 +1,10 @@
-function CardConditions() {
+type CardConditionsProps = {
+    conditionMeteo: string;
+    onConditionMeteoChange: (v: string) => void;
+}
+
+
+function CardConditions({ conditionMeteo, onConditionMeteoChange }: CardConditionsProps) {
     return (
         <div className="card card-conditions">
             <h2 className="card__title">CONDITIONS ACTUELLES</h2>
@@ -6,8 +12,10 @@ function CardConditions() {
             <div className="field">
                 <label className="field__label">Condition météo</label>
                 <div className="select">
-                    <select className="select__input">
-                        <option>Favorable</option>
+                    <select className="select__input" value={conditionMeteo} onChange={e => onConditionMeteoChange(e.target.value)}>
+                        <option value="Favorable">Favorable</option>
+                        <option value="Neutre">Neutre</option>
+                        <option value="Défavorable">Défavorable</option>
                     </select>
                 </div>
             </div>
