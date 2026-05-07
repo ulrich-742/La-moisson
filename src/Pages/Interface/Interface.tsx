@@ -1,10 +1,10 @@
 import "./Interface.css";
 import { useState } from "react";
 import { calculerRendement } from "../../utils/CalculRendement";
-import CardParcelle from "../../Components/InterfaceCards/CardParcelle";
-import CardConditions from "../../Components/InterfaceCards/CardConditions";
-import CardRendement from "../../Components/InterfaceCards/CardRendement";
-import HistoriqueModal from "../../Components/HistoriqueModal/HistoriqueModal";
+import CardParcelle from "../../components/InterfaceCards/CardParcelle";
+import CardConditions from "../../components/InterfaceCards/CardConditions";
+import CardRendement from "../../components/InterfaceCards/CardRendement";
+import HistoriqueModal from "../../components/HistoriqueModal/HistoriqueModal";
 import "../../Components/HistoriqueModal/HistoriqueModal.css";
 
 

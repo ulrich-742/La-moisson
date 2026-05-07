@@ -13,7 +13,7 @@ import "./index.css";
 import App from "./App";
 
 import Interface from "./Pages/Interface/Interface";
-// import Parcelles from "./Pages/Parcelles/Parcelles";
+import Parcelles from "./Pages/Parcelles/Parcelles";
 // import Meteo from "./Components/Pages/Meteo";
 // import CoursGrains from "./Components/Pages/CoursGrains";
 import Registre from "./Pages/RegistreRecolte/RegistreRecolte";
