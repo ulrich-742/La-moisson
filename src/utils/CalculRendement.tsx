@@ -19,11 +19,11 @@ export function getStatutRecolte(rendementHa: number): {
     label: string;
     badge: string;
 } {
-    if (rendementHa >= 15) {
+    if (rendementHa >= 7) {
         return { label: "Excellente récolte", badge: "badge--growing" };
-    } else if (rendementHa >= 10) {
-        return { label: "Récolte favorable", badge: "badge--growing" };
     } else if (rendementHa >= 5) {
+        return { label: "Récolte favorable", badge: "badge--growing" };
+    } else if (rendementHa >= 3) {
         return { label: "Récolte moyenne", badge: "badge--sown" };
     } else {
         return { label: "Récolte défavorable", badge: "badge--resting" };

@@ -4,6 +4,8 @@ import { calculerRendement } from "../../utils/CalculRendement";
 import CardParcelle from "../../Components/InterfaceCards/CardParcelle";
 import CardConditions from "../../Components/InterfaceCards/CardConditions";
 import CardRendement from "../../Components/InterfaceCards/CardRendement";
+import HistoriqueModal from "../../Components/HistoriqueModal/HistoriqueModal";
+import "../../Components/HistoriqueModal/HistoriqueModal.css";
 
 
 const parcelles = [
@@ -23,6 +25,18 @@ function Interface() {
     const [conditionMeteo, setConditionMeteo] = useState("Favorable");
     const [resultat, setResultat] = useState<{ rendementHa: string, rendementTotal: string, statutLabel: string, statutBadge: string } | null>(null);
 
+    const [historique, setHistorique] = useState<{
+        date: string;
+        culture: string;
+        surface: number;
+        rendementTotal: string;
+        rendementHa: string;
+        statutLabel: string;
+    }[]>([]);
+
+    const [showHistorique, setShowHistorique] = useState(false);
+
+
     function handleCalculer() {
         const res = calculerRendement({
             surface,
@@ -31,6 +45,15 @@ function Interface() {
             conditionMeteo,
         });
         setResultat(res);
+
+        setHistorique(prev => [{
+            date: "07/05/1600",
+            culture,
+            surface,
+            rendementTotal: res.rendementTotal,
+            rendementHa: res.rendementHa,
+            statutLabel: res.statutLabel,
+        }, ...prev]);
     }
 
     return (
@@ -40,7 +63,14 @@ function Interface() {
                     <h1>La Moisson</h1>
                     <p>Calculez le rendement estimé de vos parcelles en fonction des conditions actuelles</p>
                 </div>
-                <button className="btn btn--secondary">Historique des calculs</button>
+                <button className="btn btn--secondary" onClick={() => setShowHistorique(true)}>Historique des calculs
+                </button>
+                {showHistorique && (
+                    <HistoriqueModal
+                        historique={historique}
+                        onClose={() => setShowHistorique(false)}
+                    />
+                )}
             </div>
 
             {/* CARDS */}
