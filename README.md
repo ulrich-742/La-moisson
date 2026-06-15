@@ -3,73 +3,41 @@
 de tenir un registre de ses récoltes et de consulter en temps réel les cours des grains au marché.
 L'identité visuelle s'appuie sur  médiéval  pour une ambiance évoquant les manuscrits et registres d'une exploitation d'antan.
 
+🛠️ Stack technique
+React 18 + TypeScript
+Vite comme outil de build
+React Router pour la navigation
 
-Currently, two official plugins are available:
+src/
+├── main.tsx                  # Point d'entrée, configuration du routeur
+├── App.tsx                   # Layout principal (Navbar + Outlet + Footer)
+├── App.css / index.css       # Styles globaux
+│
+├── Components/
+│   ├── Navbar/                # Barre de navigation
+│   └── Footer/                # Pied de page
+│
+├── Pages/
+│   ├── Interface/              # Page "Moisson"
+│   ├── Parcelles/               # Page de suivi des parcelles
+│   ├── CoursDesGrains/          # Page des cours des grains
+│   └── RegistreRecolte/         # Page du registre de récolte
+│
+├── Hooks/
+│   ├── useParcelles.tsx        # Récupération des parcelles
+│   ├── useRecoltes.tsx         # Récupération des récoltes
+│   └── useCoursGrains.tsx      # Récupération des cours (rafraîchi toutes les 3s)
+│
+├── Services/
+│   └── api.ts                  # Appels vers l'API backend
+│
+└── Utils/
+    └── CalculRendement.tsx     # Logique de calcul du rendement
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+bash# Installer les dépendances
+npm install
 
-## React Compiler
+# Lancer le serveur de développement
+npm run dev
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+⚠️ Le backend doit être lancé séparément sur http://localhost:3000 pour que les données (parcelles, récoltes, cours des grains) soient disponibles.
