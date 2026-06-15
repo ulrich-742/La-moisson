@@ -8,31 +8,7 @@ React 18 + TypeScript
 Vite comme outil de build
 React Router pour la navigation
 
-src/
-├── main.tsx                  # Point d'entrée, configuration du routeur
-├── App.tsx                   # Layout principal (Navbar + Outlet + Footer)
-├── App.css / index.css       # Styles globaux
-│
-├── Components/
-│   ├── Navbar/                # Barre de navigation
-│   └── Footer/                # Pied de page
-│
-├── Pages/
-│   ├── Interface/              # Page "Moisson"
-│   ├── Parcelles/               # Page de suivi des parcelles
-│   ├── CoursDesGrains/          # Page des cours des grains
-│   └── RegistreRecolte/         # Page du registre de récolte
-│
-├── Hooks/
-│   ├── useParcelles.tsx        # Récupération des parcelles
-│   ├── useRecoltes.tsx         # Récupération des récoltes
-│   └── useCoursGrains.tsx      # Récupération des cours (rafraîchi toutes les 3s)
-│
-├── Services/
-│   └── api.ts                  # Appels vers l'API backend
-│
-└── Utils/
-    └── CalculRendement.tsx     # Logique de calcul du rendement
+
 
 bash# Installer les dépendances
 npm install
